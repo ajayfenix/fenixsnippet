@@ -1,0 +1,225 @@
+<style>
+   *{
+    font-family: sans-serif;
+   }
+   .shipping-options-title{
+   display: flex;
+   align-items: stretch;
+   flex-direction: row;
+   font-size: 16px;
+   margin: 10px 5px 10px 0;
+   }
+   .shipping-optioins-title div{
+   width: 50%;
+   }
+   h2.shipping-options-title div:last-child {
+   width: 45%;
+   }
+   .popover{
+   min-width: 325px;
+   max-width: 350px;
+   }
+   .popover-title{
+   background: none !important;
+   border: none !important;
+   padding-bottom: 5px !important;
+   }
+   .fenix-provided-options table{
+   font-size: 14px;
+   width: 100%;
+   color: rgba(0,0,0,0.8);
+   border-spacing: 0px;
+   }
+   .fenix-provided-options table thead th{
+   padding: 5px 0px 7px;
+   }
+   .fenix-provided-options table tr td, .fenix-provided-options table tr th{
+   font-weight: normal;
+   text-align: center;
+   padding: 10px;
+   }
+   .fenix-provided-options table thead{
+   border-bottom: 1px solid #ccc;
+   }
+   .fixd-delivery{
+   margin-bottom: 25px;
+   }
+   .fixd-delivery #fenix-pdp-estimate {
+   display: none;
+   font-size: 14px;
+   margin-top: 10px;
+   margin-bottom: 5px;
+   color: #000;
+   }
+   .fixd-delivery #fenix-pdp-estimate img{
+   display: inline;
+   height: 25px;
+   }
+   .fixd-delivery #fenix-pdp-estimate div{
+   position: relative;
+   font-size: 14px;
+   }
+   #estimate-text{
+   display: inline;
+   vertical-align: middle;
+   }
+   #estimate-text .shipping-note{
+   font-size: 15px;
+   margin-top: 10px;
+   margin-bottom: 15px !important;
+   }
+   .fixd-delivery .message-color-code {
+   color: #23804f;
+   font-weight: 600;
+   }
+   .icon-truck:before {
+   content: "\e9b0";
+   }
+   .fixd-delivery #change-zip-container {
+   font-size: 14px;
+   display: none;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   }
+   .fixd-delivery #change-zip-container > div{
+   display: flex;
+   align-items: center;
+   }
+   .fixd-delivery #change-zip-container input {
+   width: 30%;
+   margin-left: 0 !important;
+   margin-top: 0 !important;
+   font-size: 15px;
+   height: 40px;
+   padding-left: 10px;
+   display: inline-block;
+   font-weight: normal;
+   }
+   .fixd-delivery #change-zip-container a.btn {
+   height: 40px;
+   background: none #000;
+   color: #fff;
+   font-size: 13px;
+   font-weight: 600;
+   line-height: 30px;
+   text-decoration: none;
+   text-transform: uppercase;
+   display: inline-block;
+   padding: 5px;
+   vertical-align: top;
+   width: 150px !important;
+   outline: none;
+   }
+   .fixd-delivery #change-zip, .fixd-delivery #view-all-shipping {
+   color: #000;
+   border-bottom: 1px solid #000;
+   text-transform: unset;
+   text-decoration: none !important;
+   }
+   #view-all-shipping,
+   #view-all-shipping:hover, 
+   #view-all-shipping:focus{
+   outline: none;
+   border: none;
+   }
+   .fixd-delivery .store-middle-label {
+   width: 96% !important;
+   }
+   .fixd-delivery #zipcode-holder strong {
+   /*color: #17A6FF;*/
+   font-weight: 400;
+   }
+   .fixd-delivery .pdpn-shiptoday {
+   background: none;
+   color: #000;
+   font-size: 17px;
+   font-weight: 400;
+   margin: 0;
+   line-height: 20px;
+   /*padding: 16px 0 0 35px;*/
+   }
+   .fixd-delivery.hide, .fixd-delivery .hide{
+   display: none;
+   }
+   .fenix-showalltitle{
+   font-size: 12px;
+   padding: 10px;
+   padding-bottom: 0px;
+   }
+   .allestimates{
+   width: 300px;
+   display: inline-block;
+   position: absolute !important;
+   background: #fff;
+   border: 1px solid #d1d1d1;
+   left: 100px;
+   bottom: 25px;
+   z-index: 99;
+   box-shadow: 0px 4px 4px #b6b6b6;
+   }
+   .fenix-logo{
+   padding: 10px;
+   font-size: 10px !important;
+   padding-top: 0px;
+   }
+   .fenix-logo svg{
+   position: relative;
+   top: 7px;
+   }
+   .fenix-provided-options tr:nth-child(odd) {
+   background-color: #f9f9f9;
+   }
+   .fenix-provided-options tr:nth-child(even) {
+   background-color: #ffffff;
+   }
+   .fenix-provided-options th {
+   background-color: #c4122f;
+   }   
+   .closeshipping {
+   position: absolute;
+   right: 10px;
+   top: 7px;
+   width: 20px;
+   height: 20px;
+   opacity: 1;
+   cursor: pointer;
+   }
+   .closeshipping:hover {
+   opacity: 1;
+   }
+   .closeshipping:before, .closeshipping:after {
+   position: absolute;
+   left: 15px;
+   content: ' ';
+   height: 20px;
+   width: 2px;
+   background-color: #333;
+   }
+   .closeshipping:before {
+   transform: rotate(45deg);
+   }
+   .closeshipping:after {
+   transform: rotate(-45deg);
+   }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="fenix.js"></script>
+<div style="margin-top:300px;margin-left:300px;">
+   <div id="fenix-estimates" class="fixd-delivery" style="display:none;">
+      <div class="fenix-delivery-estimate" id="fenix-pdp-estimate" style="display:none;">
+         <div id="estimate-text" class="pdpn-shiptoday"></div>
+         <div>
+            Ship to: <span id="zipcode-holder" class="pdpn-freeship"></span> (<a id="change-zip" href="javascript:void(0);" onclick="fenixChangeZip();">Change</a>) 
+            <a href="javascript:void(0);" data-toggle="popover" id="view-all-shipping" onclick="opencloseshowall()">View All Shipping Options</a> 
+            <div class="allestimates" style="display:none">
+            </div>
+         </div>
+      </div>
+      <div id="change-zip-container">
+         <div>
+            <input placeholder="Enter zipcode" type="text" name="fenix-zip" id="fenix-zip"/>
+            <a href="javascript:void(0)" class="btn btn-tertiary" onclick="pincodechange();">Check Delivery</a>
+         </div>
+      </div>
+   </div>
+</div>
