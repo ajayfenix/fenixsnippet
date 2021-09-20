@@ -1,15 +1,11 @@
-// FIRST GET YOUR tenantId and delEstUrl from the following URL 
+// FIRST GET YOUR tenantId and delEstUrl from FENIX TEAM
 // Which would remain to constant 
-// GET Request : https://delest-api.fenixcommerce.com/fenixdelest/api/v1/{YOUR_SHOPIFY_STORE_URL}/storeinfo
-// Eg. : https://delest-api.fenixcommerce.com/fenixdelest/api/v1/dormeo-na.myshopify.com/storeinfo
-
-
 
 let sessionId = Math.random().toString(36).substr(2, 25); // Unique request 
 let zipcode = getCookie('location') || 90001; // pass default zipcode
 
-const tenantId = "cb93e050d6a44c3bab2edd2795bc4451"; // CONFIRM FROM ABOVE GET REQUEST
-const apiurl = "https://delest-api.fenixcommerce.com/fenixdelest/api/v2/deliveryestimates"; // CONFIRM FROM ABOVE GET REQUEST
+const tenantId = "FENIX_PROVIDED_TENANT_ID"; // tenantID
+const apiurl = "FENIX_PROVIDED_API_ENDPOINT_URL"; // API ENDPOINT URL
 
 
 function setCookie(cname, cvalue, exdays) {
